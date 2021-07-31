@@ -24,7 +24,7 @@ public class TestBase {
 
         Configuration.browserCapabilities = capabilities;
         Configuration.startMaximized = true;
-        Configuration.remote = format("https://%s:%s@" + System.getProperty("url"), login, password);
+    //    Configuration.remote = format("https://%s:%s@" + System.getProperty("url"), login, password);
         // команда для запуска из консоли gradle clean test -Durl=selenoid.autotests.cloud/wd/hub/
 
     }

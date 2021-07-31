@@ -7,6 +7,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
+
 public class FormTest extends TestBase{
     Faker faker = new Faker();
     String firstName = faker.name().firstName();
