@@ -15,15 +15,16 @@ public class FormTest extends TestBase{
     String email = faker.internet().emailAddress();
     String gender = "Other";
     String phone = faker.numerify("##########");
-    String dayOfBirth = "10";
-    String monthOfBirth = "May";
-    String yearOfBirth = "1988";
-    String subjects = "Biology";
-    String hobbies = "Music";
+    String day = "01";
+    String month = "November";
+    String year = "1995";
+    String subject = "Maths";
     String picture = "file.jpeg";
+    String hobbies = "Reading";
     String address = faker.address().fullAddress();
-    String state = "NCR";
-    String city = "Noida";
+    String state = "Haryana";
+    String city = "Panipat";
+
 
     @Test
     void successfulFillFormTest() {
@@ -42,13 +43,13 @@ public class FormTest extends TestBase{
             });
             step("Set date", () -> {
                 $("#dateOfBirthInput").clear();
-                $(".react-datepicker__month-select").selectOption(monthOfBirth);
-                $(".react-datepicker__year-select").selectOption(yearOfBirth);
-                $(".react-datepicker__day--0" + dayOfBirth).click();
+                $(".react-datepicker__month-select").selectOption(month);
+                $(".react-datepicker__year-select").selectOption(year);
+                $(".react-datepicker__day--0" + day).click();
             });
             step("Set subjects", () -> {
-                $("#subjectsInput").val(subjects);
-                $("#subjectsInput").setValue(subjects).pressEnter();
+                $("#subjectsInput").val(subject);
+                $("#subjectsInput").setValue(subject).pressEnter();
             });
             step("Set hobbies", () -> {
                 $("#hobbiesWrapper").$(byText(hobbies)).click();
@@ -72,8 +73,8 @@ public class FormTest extends TestBase{
             $x("//td[text()='Student Email']").parent().shouldHave(text(email));
             $x("//td[text()='Gender']").parent().shouldHave(text(gender));
             $x("//td[text()='Mobile']").parent().shouldHave(text(phone));
-            $x("//td[text()='Date of Birth']").parent().shouldHave(text(dayOfBirth + " " + monthOfBirth + "," + yearOfBirth));
-            $x("//td[text()='Subjects']").parent().shouldHave(text(subjects));
+            $x("//td[text()='Date of Birth']").parent().shouldHave(text(day + " " + month + "," + year));
+            $x("//td[text()='Subjects']").parent().shouldHave(text(subject));
             $x("//td[text()='Hobbies']").parent().shouldHave(text(hobbies));
             $x("//td[text()='Picture']").parent().shouldHave(text(picture));
             $x("//td[text()='Address']").parent().shouldHave(text(address));
